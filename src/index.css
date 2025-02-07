@@ -37,6 +37,12 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    background: linear-gradient(to bottom right, 
+      hsl(240 10% 3.9%), 
+      hsl(240 15% 5%),
+      hsl(240 20% 7%)
+    );
+    min-height: 100vh;
   }
 }
 
