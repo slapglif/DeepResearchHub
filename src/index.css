@@ -67,4 +67,12 @@
   .shimmer {
     @apply relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-shimmer before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent;
   }
+
+  .glow {
+    @apply relative after:absolute after:inset-0 after:rounded-lg after:opacity-0 after:transition-opacity hover:after:opacity-100 after:ring-2 after:ring-white/20;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-to-br from-white/5 to-white/[0.02];
+  }
 }

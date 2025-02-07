@@ -63,7 +63,7 @@ export const QueryInput = ({ onProcessingChange }: QueryInputProps) => {
         <Input
           type="text"
           placeholder="Enter your research query..."
-          className="glass-morphism pr-24 h-14 text-lg focus:ring-2 focus:ring-white/20"
+          className="glass-morphism card-gradient pr-24 h-14 text-lg focus:ring-2 focus:ring-white/20 placeholder:text-white/50"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           disabled={isProcessing}
@@ -74,16 +74,21 @@ export const QueryInput = ({ onProcessingChange }: QueryInputProps) => {
               <Button
                 type="button"
                 size="icon"
-                className="neo-blur hover:bg-white/10"
+                className="neo-blur hover:bg-white/10 glow"
                 disabled={isProcessing}
               >
                 <SlidersHorizontal className="h-5 w-5" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-80 glass-morphism border-none">
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Research Depth</label>
+            <PopoverContent className="w-80 glass-morphism card-gradient border-none">
+              <div className="space-y-6 p-2">
+                <div className="space-y-4">
+                  <label className="text-sm font-medium flex items-center justify-between">
+                    Research Depth
+                    <span className="text-xs text-muted-foreground">
+                      {depth}%
+                    </span>
+                  </label>
                   <Slider
                     value={depth}
                     onValueChange={setDepth}
@@ -92,12 +97,14 @@ export const QueryInput = ({ onProcessingChange }: QueryInputProps) => {
                     step={1}
                     className="[&_[role=slider]]:bg-white"
                   />
-                  <span className="text-xs text-muted-foreground">
-                    Current: {depth}%
-                  </span>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Max Sources</label>
+                <div className="space-y-4">
+                  <label className="text-sm font-medium flex items-center justify-between">
+                    Max Sources
+                    <span className="text-xs text-muted-foreground">
+                      {sources} sources
+                    </span>
+                  </label>
                   <Slider
                     value={sources}
                     onValueChange={setSources}
@@ -106,9 +113,6 @@ export const QueryInput = ({ onProcessingChange }: QueryInputProps) => {
                     step={1}
                     className="[&_[role=slider]]:bg-white"
                   />
-                  <span className="text-xs text-muted-foreground">
-                    Current: {sources} sources
-                  </span>
                 </div>
               </div>
             </PopoverContent>
@@ -116,7 +120,7 @@ export const QueryInput = ({ onProcessingChange }: QueryInputProps) => {
           <Button
             type="submit"
             size="icon"
-            className="neo-blur hover:bg-white/10"
+            className="neo-blur hover:bg-white/10 glow"
             disabled={isProcessing}
           >
             {isProcessing ? (
