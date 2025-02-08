@@ -36,7 +36,7 @@ export const QueryInput = ({ onProcessingChange }: QueryInputProps) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "MFDoom/deepseek-r1-tool-calling:1.5b",
+          model: "smallthinker",
           messages: [
             {
               role: "user",

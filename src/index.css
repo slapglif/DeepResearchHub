@@ -50,11 +50,11 @@
 
 @layer utilities {
   .glass-morphism {
-    @apply backdrop-blur-xl bg-white/5 border border-white/10 shadow-[0_4px_12px_-2px_rgba(0,0,0,0.3)] transition-all duration-300;
+    @apply backdrop-blur-xl bg-white/[0.03] border border-white/[0.05] shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-all duration-300;
   }
   
   .neo-blur {
-    @apply backdrop-blur-2xl bg-black/40 border border-white/10 transition-all duration-300;
+    @apply backdrop-blur-2xl bg-black/30 border border-white/[0.05] shadow-[0_4px_24px_-4px_rgba(0,0,0,0.1)] transition-all duration-300;
   }
   
   .text-gradient {
@@ -66,15 +66,15 @@
   }
   
   .shimmer {
-    @apply relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-shimmer before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent;
+    @apply relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-shimmer before:bg-gradient-to-r before:from-transparent before:via-white/[0.08] before:to-transparent;
   }
 
   .glow {
-    @apply relative after:absolute after:inset-0 after:rounded-lg after:opacity-0 after:transition-opacity hover:after:opacity-100 after:ring-2 after:ring-white/20;
+    @apply relative after:absolute after:inset-0 after:rounded-lg after:opacity-0 after:transition-opacity hover:after:opacity-100 after:ring-2 after:ring-white/[0.08] after:shadow-[0_0_24px_4px_rgba(255,255,255,0.04)];
   }
 
   .card-gradient {
-    @apply bg-gradient-to-br from-white/5 to-white/[0.02];
+    @apply bg-gradient-to-br from-white/[0.03] to-transparent;
   }
 }
 
@@ -96,7 +96,7 @@
 
 @keyframes expand {
   from {
-    transform: scale(0.95);
+    transform: scale(0.98);
     opacity: 0;
   }
   to {
@@ -108,3 +108,4 @@
 .animate-expand {
   animation: expand 0.2s ease-out forwards;
 }
+
