@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -6,25 +7,25 @@
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;
+    --background: 240 10% 3\.9%;
     --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
+    --card: 240 10% 3\.9%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
+    --popover: 240 10% 3\.9%;
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
+    --primary-foreground: 240 5\.9% 10%;
+    --secondary: 240 3\.7% 15\.9%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
+    --muted: 240 3\.7% 15\.9%;
+    --muted-foreground: 240 5% 64\.9%;
+    --accent: 240 3\.7% 15\.9%;
     --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62\.8% 30\.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --border: 240 3\.7% 15\.9%;
+    --input: 240 3\.7% 15\.9%;
+    --ring: 240 4\.9% 83\.9%;
     --radius: 0.75rem;
   }
   
@@ -37,7 +38,7 @@
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
     background: radial-gradient(
       circle at top center,
-      hsl(240 15% 3.9%),
+      hsl(240 15% 3\.9%),
       hsl(246 15% 5%),
       hsl(252 20% 7%)
     );
@@ -75,7 +76,6 @@
   }
 }
 
-// Animations
 @keyframes fade-in {
   from {
     opacity: 0;
