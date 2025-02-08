@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Search, Loader2, SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,6 +9,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { useToast } from "@/components/ui/use-toast";
 
 interface QueryInputProps {
   onProcessingChange?: (isProcessing: boolean) => void;
@@ -18,6 +20,7 @@ export const QueryInput = ({ onProcessingChange }: QueryInputProps) => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [depth, setDepth] = useState([50]);
   const [sources, setSources] = useState([5]);
+  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,10 +50,23 @@ export const QueryInput = ({ onProcessingChange }: QueryInputProps) => {
         }),
       });
 
+      if (!response.ok) {
+        throw new Error("Failed to process query");
+      }
+
       const data = await response.json();
       console.log("API Response:", data);
+      toast({
+        title: "Query processed",
+        description: "Your research request has been completed.",
+      });
     } catch (error) {
       console.error("API Error:", error);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Failed to process your query. Please try again.",
+      });
     } finally {
       setIsProcessing(false);
       onProcessingChange?.(false);
@@ -58,12 +74,12 @@ export const QueryInput = ({ onProcessingChange }: QueryInputProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-3xl animate-fade-up space-y-4">
+    <form onSubmit={handleSubmit} className="w-full max-w-3xl animate-fade-up">
       <div className="relative flex items-center gap-2">
         <Input
           type="text"
-          placeholder="Enter your research query..."
-          className="glass-morphism card-gradient pr-24 h-14 text-lg focus:ring-2 focus:ring-white/20 placeholder:text-white/50"
+          placeholder="Ask me anything..."
+          className="neo-blur h-14 text-lg focus-visible:ring-1 focus-visible:ring-white/20 placeholder:text-white/50"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           disabled={isProcessing}
@@ -74,13 +90,14 @@ export const QueryInput = ({ onProcessingChange }: QueryInputProps) => {
               <Button
                 type="button"
                 size="icon"
-                className="neo-blur hover:bg-white/10 glow"
+                variant="ghost"
+                className="hover:bg-white/5"
                 disabled={isProcessing}
               >
                 <SlidersHorizontal className="h-5 w-5" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-80 glass-morphism card-gradient border-none">
+            <PopoverContent className="w-80 neo-blur border-none">
               <div className="space-y-6 p-2">
                 <div className="space-y-4">
                   <label className="text-sm font-medium flex items-center justify-between">
@@ -120,7 +137,8 @@ export const QueryInput = ({ onProcessingChange }: QueryInputProps) => {
           <Button
             type="submit"
             size="icon"
-            className="neo-blur hover:bg-white/10 glow"
+            variant="ghost"
+            className="hover:bg-white/5"
             disabled={isProcessing}
           >
             {isProcessing ? (
